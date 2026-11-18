@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Na Ying “I Came, Because You’re Here” Tour Promo Site</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* ========== Updated Palette: Light‑Purple / Lavender Main Theme ========== */
+        :root {
+            --deep-violet: #4A2382;        /* Nav / Footer / Dark heading */
+            --medium‑violet: #7B4BBF;      /* Hero banner background */
+            --light‑lavender: #E8E2F7;     /* MAIN PAGE BACKGROUND (淡紫色主背景) */
+            --card‑white: #FFFFFF;
+            --accent‑magenta: #C762D8;     /* CTA button highlight */
+            --hover‑purple: #9D58B8;       /* Button hover */
+            --border‑violet: #8C62D0;      /* Borders, timeline accent */
+            --shadow‑lavender: #CBB8E8;    /* Card shadow */
+            --text‑dark: #221833;          /* Body text (高对比度，避免文字发淡) */
+            --text‑light: #ffffff;         /* Text on dark purple blocks */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Noto Sans SC', 'Inter', sans-serif;
+            background-color: var(--light‑lavender);
+            color: var(--text‑dark);
+            line-height: 1.7;
+        }
+
+        /* ========== Typography — stronger visual hierarchy 字体层级强化 ========== */
+        h1, h2, h3, h4 {
+            font-family: 'Noto Serif SC', 'Playfair Display', serif;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: clamp(2.2rem,5vw,3.4rem);
+            line-height:1.15;
+        }
+        h2 {
+            font-size: clamp(1.7rem,3.5vw,2.4rem);
+        }
+        h3 {
+            font-size: clamp(1.25rem,2.5vw,1.6rem);
+        }
+        p {
+            font-size:1.05rem;
+            margin-bottom:1.1rem;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: var(--deep-violet);
+            padding: 1.1rem;
+            position: sticky;
+            top: 0;
+            z-index: 99;
+        }
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.4rem;
+            justify-content: center;
+        }
+        .nav-container a {
+            color: var(--text‑light);
+            text-decoration: none;
+            font-weight: 600;
+            font-size:1.05rem;
+        }
+        .nav-container a:hover {
+            color: #F2C8FF;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3.2rem 2rem;
+        }
+
+        /* Image Placeholder */
+        .placeholder-img {
+            width: 100%;
+            min-height: 240px;
+            background-color: var(--shadow‑lavender);
+            border: 2px dashed var(--border‑violet);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--deep-violet);
+            font-weight:500;
+            margin: 1rem 0;
+        }
+
+        /* Real photo / video sizing */
+        .hero-img {
+            width: 100%;
+            display: block;
+            border-radius: 12px;
+            box-shadow: 0 12px 30px rgba(74, 35, 130, 0.35);
+            margin: 1.4rem 0 0;
+        }
+        .card-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            object-position: center 30%;
+            display: block;
+            border-radius: 8px;
+            margin: 1rem 0 0.6rem;
+        }
+        .video-wrap video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* CSS‑made graphical icons (3 requirement) */
+        .icon-circle {
+            display: inline-block;
+            width:38px;
+            height:38px;
+            border-radius:50%;
+            background-color:var(--accent‑magenta);
+        }
+        .icon-square {
+            display: inline-block;
+            width:34px;
+            height:34px;
+            background-color:var(--border‑violet);
+        }
+        .icon-diamond {
+            display: inline-block;
+            width:32px;
+            height:32px;
+            background-color:var(--deep-violet);
+            transform: rotate(45deg);
+        }
+        .icon-group{
+            display:flex;
+            gap:1.2rem;
+            margin:1.2rem 0;
+        }
+
+        /* Video placeholder */
+        .video-wrap{
+            width:100%;
+            aspect-ratio:16 / 9;
+            background-color:var(--deep-violet);
+            color:var(--text‑light);
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            font-weight:500;
+            margin:1.4rem 0;
+        }
+
+        /* Hero / Home Section */
+        #home {
+            background-color: var(--medium‑violet);
+            color: var(--text‑light);
+            padding: 4.2rem 2rem;
+        }
+        #home h1 {
+            color: var(--text‑light);
+        }
+        .highlight-song {
+            font-family:'Noto Serif SC',serif;
+            font-weight:800;
+            color:#FFD8FF;
+            font-size:1.15rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent‑magenta);
+            color: var(--text‑light);
+            padding: 0.9rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size:1.05rem;
+            border: none;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: var(--hover‑purple);
+        }
+        .btn + .btn {
+            margin-left: 1rem;
+        }
+
+        /* About Section Grid */
+        #about .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+            gap: 1.6rem;
+            margin-top:2.2rem;
+        }
+        .feature-card {
+            background: var(--card‑white);
+            padding:1.5rem;
+            border-radius:10px;
+            box-shadow: 0 3px 12px var(--shadow‑lavender);
+        }
+
+        /* Gallery Timeline */
+        #gallery .timeline-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
+            gap:1.7rem;
+            margin-top:2.2rem;
+        }
+        .city-card {
+            background:var(--card‑white);
+            border-left:7px solid var(--border‑violet);
+            padding:1.5rem;
+            border-radius: 0 10px 10px 0;
+            box-shadow:0 3px 10px var(--shadow‑lavender);
+        }
+        .tba-tag {
+            color: var(--accent‑magenta);
+            font-weight:700;
+            font-size:1.05rem;
+        }
+
+        /* Setlist Section */
+        #setlist {
+            background-color: rgba(123,75,191,0.08);
+        }
+        .setlist-block {
+            background:var(--card‑white);
+            padding:1.8rem;
+            border-radius:10px;
+            margin-top:1.6rem;
+        }
+        .setlist-block ul{
+            padding-left:1.6rem;
+            margin:1.1rem 0;
+            font-size:1.05rem;
+        }
+
+        /* Tickets */
+        #tickets .price-list {
+            background:var(--card‑white);
+            padding:1.8rem;
+            border-radius:10px;
+            margin-top:1.6rem;
+        }
+        .price-tag {
+            display:inline-block;
+            background-color: var(--hover‑purple);
+            color:var(--text‑light);
+            padding:0.5rem 0.9rem;
+            border-radius:5px;
+            font-weight:600;
+            margin:0.4rem;
+        }
+
+        /* Contact Form demo only */
+        #contact form {
+            max-width:580px;
+            background:var(--card‑white);
+            padding:2.2rem;
+            border-radius:10px;
+            margin-top:1.6rem;
+        }
+        .form-group {
+            margin-bottom:1.4rem;
+        }
+        label {
+            display:block;
+            margin-bottom:0.5rem;
+            font-weight:600;
+            font-size:1.05rem;
+        }
+        input, select {
+            width:100%;
+            padding:0.85rem;
+            border:1px solid #C4B2E0;
+            border-radius:6px;
+            font-size:1rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--deep-violet);
+            color:var(--text‑light);
+            text-align:center;
+            padding:2.2rem;
+            font-size:0.95rem;
+        }
+
+        /* Mobile responsive */
+        @media(max-width:620px){
+            .btn + .btn {
+                margin-left:0;
+                margin-top:1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- Navigation Menu -->
+<nav>
+    <div class="nav-container">
+        <a href="#home">HOME</a>
+        <a href="#about">ABOUT</a>
+        <a href="#gallery">GALLERY</a>
+        <a href="#setlist">SETLIST</a>
+        <a href="#tickets">TICKETS</a>
+        <a href="#contact">CONTACT</a>
+    </div>
+</nav>
+
+<!-- HOME / HERO -->
+<section id="home">
+    <div class="container">
+        <h1>“I Came, Because You’re Here”<br>Na Ying 2026‑2027 Tour</h1>
+        <p>Focus Stop: Hangzhou, 31 October 2026 | Hangzhou Olympic Sports Centre Arena</p>
+        <p>Debut performance: <span class="highlight-song">《White Thread》</span></p>
+
+        <!-- IMAGE 1: Official tour poster -->
+        <img class="hero-img" src="images/mmexport1793772634062.jpg" alt="Official key visual poster of the Na Ying 2026-2027 tour">
+
+        <!-- EMBED VIDEO: Minimum one embedded video requirement -->
+        <div class="video-wrap">
+            <video controls preload="metadata" poster="images/mmexport1793772634062.jpg">
+                <source src="images/mmexport1793772640844.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <!-- 3 CSS graphical icons -->
+        <div class="icon-group">
+            <span class="icon-circle"></span>
+            <span class="icon-square"></span>
+            <span class="icon-diamond"></span>
+        </div>
+
+        <div>
+            <a href="#tickets" class="btn">Get Tickets</a>
+            <a href="#contact" class="btn">Alert Me</a>
+        </div>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="container">
+    <h2>About This Tour</h2>
+    <p>Every tour stop brings unique stage design, custom costumes, guest artists and exclusive set‑list selections.</p>
+    <div class="feature-grid">
+        <div class="feature-card">
+            <h3>Stage</h3>
+            <img class="card-img" src="images/mmexport1793772622379.jpg" alt="Circular LED screen and light beams of the tour stage design">
+            <p>Distinct stage lighting and construction for each city performance.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Look</h3>
+            <img class="card-img" src="images/mmexport1793772629689.jpg" alt="Editorial fashion look from the tour photo shooting">
+            <p>Haute‑couture fashion looks exclusive for each tour stop.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Guest Artists</h3>
+            <img class="card-img" src="images/mmexport1793772611291.jpg" alt="Na Ying and a guest artist performing together on stage">
+            <p>Rotating special guests joining Na‑Ying on different dates.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Vocal Power</h3>
+            <img class="card-img" src="images/mmexport1793772627942.jpg" alt="Na Ying singing live on stage with a guest artist">
+            <p>Full‑live, all‑open‑mic live vocal delivery for every show.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Souvenir Glow Stick</h3>
+            <img class="card-img" src="images/mmexport1793772620713.jpg" alt="Souvenir glow stick held up in the audience before the stage">
+            <p>Collectible glow‑stick souvenir available at venue for audiences.</p>
+        </div>
+    </div>
+</section>
+
+<!-- GALLERY / TIMELINE (Products / Services) -->
+<section id="gallery" class="container">
+    <h2>Tour Timeline Gallery</h2>
+    <p>Tour stops and featured guest performers (Upcoming locations marked TBA / To Be Unlocked)</p>
+    <div class="timeline-grid">
+        <div class="city-card">
+            <h3>Beijing</h3>
+            <p>Guest: Xiao Zhan</p>
+            <img class="card-img" src="images/mmexport1793772617464.jpg" alt="Beijing stop: Na Ying with the guest artist in front of the audience">
+        </div>
+        <div class="city-card">
+            <h3>Nanjing</h3>
+            <p>Guest: Song Jia</p>
+            <img class="card-img" src="images/mmexport1793772619036.jpg" alt="Nanjing stop: Na Ying on stage with the guest artist">
+        </div>
+        <div class="city-card">
+            <h3>Chengdu</h3>
+            <p>Guest: Liang Bo</p>
+            <img class="card-img" src="images/mmexport1793772614076.jpg" alt="Chengdu stop: Na Ying with the guest artist playing acoustic guitar">
+        </div>
+        <div class="city-card">
+            <h3>Foshan</h3>
+            <p>Guest: Wang Sulong</p>
+            <img class="card-img" src="images/mmexport1793772609593.jpg" alt="Foshan stop: stage portrait of Na Ying in tour costume">
+        </div>
+        <div class="city-card">
+            <h3>Hangzhou</h3>
+            <p>Guest: Cai Jianya</p>
+            <img class="card-img" src="images/mmexport1793772615689.jpg" alt="Hangzhou stop: Na Ying and the guest artist under purple audience lights">
+        </div>
+        <div class="city-card">
+            <h3>Guangzhou / Shenzhen</h3>
+            <p class="tba-tag">TBA — To be unlocked</p>
+            <img class="card-img" src="images/mmexport1793772632378.jpg" alt="Upcoming stops teaser: full arena view of the tour stage in red light">
+        </div>
+    </div>
+</section>
+
+<!-- SETLIST (Products/Services) -->
+<section id="setlist" class="container">
+    <h2>Setlist</h2>
+    <div class="setlist-block">
+        <h3>Core Hit Songs</h3>
+        <ul>
+            <li>Conquest</li>
+            <li>Silence</li>
+            <li>Day Doesn’t Understand Night’s Black</li>
+        </ul>
+        <h3>City‑Exclusive Tracks</h3>
+        <ul>
+            <li>Beijing exclusive track</li>
+            <li>Nanjing exclusive track</li>
+            <li>Chengdu exclusive track</li>
+            <li>Foshan exclusive track</li>
+            <li><span class="highlight-song">Hangzhou exclusive: 《White Thread》 (Debut)</span></li>
+        </ul>
+    </div>
+</section>
+
+<!-- TICKETS (Products/Services) -->
+<section id="tickets" class="container">
+    <h2>Ticket Information</h2>
+    <p><em>This is an academic demo site. No payment will be processed here. Please purchase from official ticketing platforms.</em></p>
+    <div class="price-list">
+        <h3>Ticket Price Tiers (CNY)</h3>
+        <div>
+            <span class="price-tag">¥380</span>
+            <span class="price-tag">¥680</span>
+            <span class="price-tag">¥980</span>
+            <span class="price-tag">¥1280</span>
+            <span class="price-tag">¥1380</span>
+        </div>
+        <div style="margin-top:1.3rem;">
+            <strong>Official Ticketing Platforms:</strong> Damai, Maoyan, Piaoxingqiu
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT (Display‑only demo form) -->
+<section id="contact" class="container">
+    <h2>Contact — City Preference Registration (Demo Only)</h2>
+    <p>Register your preferred city for tour update alerts. Form does NOT submit any real‑world data.</p>
+    <form>
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input id="name" type="text" placeholder="Enter your name">
+        </div>
+        <div class="form-group">
+            <label for="email">Email Address</label>
+            <input id="email" type="email" placeholder="Enter your email">
+        </div>
+        <div class="form-group">
+            <label for="preferred‑city">Preferred City</label>
+            <select id="preferred‑city">
+                <option>Beijing</option>
+                <option>Nanjing</option>
+                <option>Chengdu</option>
+                <option>Foshan</option>
+                <option>Hangzhou</option>
+                <option>Guangzhou</option>
+                <option>Shenzhen</option>
+            </select>
+        </div>
+        <button type="button" class="btn">Submit Preference</button>
+    </form>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p>© Na Ying Studio · Images © original owners</p>
+    <p>ICT2215 Assessment 2, academic demonstration only — Not for commercial use</p>
+</footer>
+</body>
+</html>
